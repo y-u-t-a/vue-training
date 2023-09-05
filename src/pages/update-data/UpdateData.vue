@@ -36,7 +36,7 @@ function deleteItem() {
 }
 function addItem() {
   const idList = items.value.map(i => i.item.id)
-  const id = Math.max(...idList) + 1
+  const id = Math.max(...idList, 0) + 1 // 0件の場合も考慮
   items.value.push(
     { item: new Item(id, `item${id}`), check: false }
   )
