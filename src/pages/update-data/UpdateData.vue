@@ -48,6 +48,14 @@ function changeCheckState(item: Item, check: boolean) {
     }
   })
 }
+
+function changeCategory(item: Item, category: string[]) {
+  items.value.forEach(i => {
+    if (i.item.id === item.id) {
+      i.item.category = category
+    }
+  })
+}
 </script>
 
 <template>
@@ -68,6 +76,7 @@ function changeCheckState(item: Item, check: boolean) {
           :item="item.item"
           :check="item.check"
           @changeCheckState="changeCheckState"
+          @changeCategory="changeCategory"
         ></Child>
       </div>
     </VCol>

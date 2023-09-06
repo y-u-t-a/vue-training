@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { Item } from './item'
+import GrandChild from './GrandChild.vue'
 
 const props = defineProps<{
   item: Item,
@@ -22,9 +23,17 @@ function onChange() {
 </script>
 
 <template>
-  <VCheckbox
-    v-model="check"
-    :label="props.item.name"
-    @change="onChange"
-  />
+  <VRow>
+    <VCol>
+      <VCheckbox
+        v-model="check"
+        :label="props.item.name"
+        @change="onChange"
+      />
+    </VCol>
+    <VCol>
+      <h3>孫コンポーネント</h3>
+      <GrandChild :item="item" v-bind="$attrs"/>
+    </VCol>
+  </VRow>
 </template>
