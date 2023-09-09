@@ -1,23 +1,21 @@
 <script setup lang="ts">
 import { ref, onBeforeMount } from 'vue'
+import { Users, getUsers } from './users'
 
-const users = ref<string[] | null>(null)
+const users = ref<Users | null>(null)
 
 function loading() {
   return users.value === null
 }
 function empty() {
-  return users.value !== null && users.value.length === 0
+  return users.value !== null && users.value.users.length === 0
 }
 
 // setup で API呼び出しするときは onBeforeMount 内で行う
 onBeforeMount(async () => {
   await new Promise(e => setTimeout(e, 2000)) // 状態遷移を確認するためにあえて遅らせる
-  const res = await fetch("/users")
-  const resJson = await res.json()
-  users.value = resJson.users
+  users.value = await getUsers()
 })
-
 </script>
 
 <template>
