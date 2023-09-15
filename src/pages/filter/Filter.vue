@@ -7,20 +7,15 @@ const filter = ref("")
 
 // リアルタイムでフィルタリングする場合は watch を使う
 watch(filter, (newValue) => {
-  if (newValue.length === 0) {
-    desserts.value = getDesserts()
-  } else {
-    desserts.value = getDesserts().filter(
-      d => d.name.includes(newValue)
-      || d.calories.toString().includes(newValue)
-    )
-  }
+  desserts.value = getDesserts().filter(
+    d => d.name.includes(newValue)
+    || d.calories.toString().includes(newValue)
+  )
 })
 </script>
 
 <template>
   <VContainer>
-    
     <VTable>
       <template #top>
         <VLabel>フィルター</VLabel>
