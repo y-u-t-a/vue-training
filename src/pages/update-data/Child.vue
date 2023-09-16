@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { computed, watch } from 'vue'
 import { Item } from './item'
 import GrandChild from './GrandChild.vue'
 
@@ -11,15 +11,14 @@ const emits = defineEmits<{
   changeCheckState: [item: Item, check: boolean]
 }>()
 
-const check = ref(props.check)
+const check = computed({
+  get: () => props.check,
+  set: (value) => emits("changeCheckState", props.item, value)
+})
 
 watch(props, (newValue) => {
   check.value = newValue.check
 })
-
-function onChange() {
-  emits("changeCheckState", props.item, check.value)
-}
 </script>
 
 <template>
@@ -28,7 +27,6 @@ function onChange() {
       <VCheckbox
         v-model="check"
         :label="props.item.name"
-        @change="onChange"
       />
     </VCol>
     <VCol>
