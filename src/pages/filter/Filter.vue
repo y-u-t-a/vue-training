@@ -15,35 +15,33 @@ watch(filter, (newValue) => {
 </script>
 
 <template>
-  <VContainer>
-    <VTable>
-      <template #top>
-        <VLabel>フィルター</VLabel>
-        <VTextField v-model="filter"/>
-        <p>件数: {{ desserts.length }}</p>
-      </template>
-      <thead>
-        <tr>
-          <th class="text-left">
-            Name
-          </th>
-          <th class="text-left">
-            Calories
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-if="desserts.length === 0">
-          <p>データがありません。</p>
-        </tr>
-        <tr
-          v-for="item in desserts"
-          :key="item.name"
-        >
-          <td>{{ item.name }}</td>
-          <td>{{ item.calories }}</td>
-        </tr>
-      </tbody>
-    </VTable>
-  </VContainer>
+  <VTable>
+    <template #top>
+      <VLabel>フィルター</VLabel>
+      <VTextField v-model="filter"/>
+      <p>件数: {{ desserts.length }}</p>
+    </template>
+    <thead>
+      <tr>
+        <th class="text-left">
+          Name
+        </th>
+        <th class="text-left">
+          Calories
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-if="desserts.length === 0">
+        <p>データがありません。</p>
+      </tr>
+      <tr
+        v-for="item in desserts"
+        :key="item.name"
+      >
+        <td>{{ item.name }}</td>
+        <td>{{ item.calories }}</td>
+      </tr>
+    </tbody>
+  </VTable>
 </template>
