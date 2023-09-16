@@ -15,10 +15,6 @@ const check = computed({
   get: () => props.check,
   set: (value) => emits("changeCheckState", props.item, value)
 })
-
-watch(props, (newValue) => {
-  check.value = newValue.check
-})
 </script>
 
 <template>
