@@ -13,7 +13,7 @@ const category = computed({
   get: () => props.item.category.join(", "),
   set: (value) => {
     const newCategory = value
-      .split(",")
+      .split(/,|\s/)
       .map(s => s.trim())
       .filter(s => s.length > 0)
     emits("changeCategory", props.item, newCategory)
