@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import Main from './Main.vue'
+import App from './App.vue'
 
 import { router } from './router'
 import { vuetify } from './plugins/vuetify'
@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === 'development') {
   })
 }
 
-createApp(Main)
+createApp(App)
   .use(router)
   .use(vuetify)
   .mount('#app')
