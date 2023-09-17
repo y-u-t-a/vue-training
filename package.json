@@ -1,6 +1,7 @@
 {
   "name": "vue-training",
   "workspaces": [
+    "vue2-vite-ts",
     "vue3-vite-ts"
   ],
   "devDependencies": {
