@@ -7,10 +7,10 @@ const menu = routes.filter(r => r.path !== "/")
 <template>
   <div>
     <h1>Vue の練習（Vue 2.7）</h1>
-    <VList>
-      <VListItem v-for="route in menu" :key="route.path">
+    <ul>
+      <li v-for="route in menu" :key="route.path">
         <RouterLink :to="route.path">{{ route.meta?.title }}</RouterLink>
-      </VListItem>
-    </VList>
+      </li>
+    </ul>
   </div>
 </template>
