@@ -3,6 +3,7 @@ import Home from './pages/Home.vue'
 import UpdateData from './pages/update-data/UpdateData.vue'
 import CallApi from './pages/call-api/CallApi.vue'
 import Filter from './pages/filter/Filter.vue'
+import Query from './pages/query/Query.vue'
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -31,6 +32,13 @@ export const routes: RouteRecordRaw[] = [
     component: Filter,
     meta: {
       title: "フィルター"
+    }
+  },
+  {
+    path: '/query',
+    component: Query,
+    meta: {
+      title: "クエリ"
     }
   },
 ]
