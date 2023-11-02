@@ -19,8 +19,8 @@ watchEffect(async () => {
 
 function search() {
   const query: Record<string, string> = {}
-  if (name) query.name = name.value
-  if (year) query.year = year.value
+  if (name.value) query.name = name.value
+  if (year.value) query.year = year.value
   router.push({ query })
 }
 </script>
