@@ -28,10 +28,10 @@ function search() {
 
 <template>
   <h1>クエリ</h1>
-  <VForm @submit.prevent="search">
-    <VTextField v-model="name" label="name"></VTextField>
-    <VTextField v-model="year" label="year"></VTextField>
-    <VBtn type="submit">検索</VBtn>
+  <VForm @submit.prevent="search" class="d-flex">
+    <VTextField v-model="name" label="name" hide-details class="mr-4"></VTextField>
+    <VTextField v-model="year" label="year" hide-details class="mr-4"></VTextField>
+    <VBtn type="submit" class="align-self-center">検索</VBtn>
   </VForm>
   <VDataTable
     :headers="headers"
