@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { Item } from '../update-data/item';
+import { Item } from '../../mocks/items'
 
 const name = ref("")
 const year = ref("")
