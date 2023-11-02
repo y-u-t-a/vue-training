@@ -2,7 +2,7 @@
 import { ref, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { Item } from '../../mocks/items'
-import { headers } from './Table'
+import { headers, page, itemsPerPage, sortBy } from './Table'
 
 const name = ref("")
 const year = ref("")
@@ -34,7 +34,11 @@ function search() {
     <VBtn type="submit" class="align-self-center">検索</VBtn>
   </VForm>
   <VDataTable
+    v-model:page="page"
+    v-model:items-per-page="itemsPerPage"
+    v-model:sort-by="sortBy"
     :headers="headers"
     :items="response || []"
+    must-sort
   ></VDataTable>
 </template>
