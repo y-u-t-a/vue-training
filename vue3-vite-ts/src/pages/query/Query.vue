@@ -2,6 +2,7 @@
 import { ref, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { Item } from '../../mocks/items'
+import { headers } from './Table'
 
 const name = ref("")
 const year = ref("")
@@ -32,5 +33,8 @@ function search() {
     <VTextField v-model="year" label="year"></VTextField>
     <VBtn type="submit">検索</VBtn>
   </VForm>
-  {{ response }}
+  <VDataTable
+    :headers="headers"
+    :items="response || []"
+  ></VDataTable>
 </template>
