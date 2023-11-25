@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { Item } from '../../mocks/items'
+import { Item } from '../../mocks/handlers/itemHandler'
 import { headers, page, itemsPerPage, sortBy } from './Table'
 
 const name = ref("")

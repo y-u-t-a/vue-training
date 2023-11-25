@@ -1,8 +1,22 @@
+import { rest } from 'msw'
+
+export const itemHandler = rest.get('/item', (req, res, ctx) => {
+  const { name, year } = Object.fromEntries(req.url.searchParams)
+  const response = items.filter(item => {
+    return item.name.includes(name || "") && item.year.toString().includes(year || "")
+  })
+  return res(
+    ctx.status(200),
+    ctx.json(response)
+  )
+})
+
 export type Item = {
   name: string,
   year: number,
 }
-export const items: Item[] = [
+
+const items: Item[] = [
   { name: "AAA", year: 1999 },
   { name: "BBB", year: 2000 },
   { name: "CCC", year: 2001 },
