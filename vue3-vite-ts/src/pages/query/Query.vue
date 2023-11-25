@@ -11,8 +11,8 @@ const router = useRouter()
 const route = useRoute()
 
 watchEffect(async () => {
-  name.value = route.query.name as string || ""
-  year.value = route.query.year as string || ""
+  name.value = route.query.name as string
+  year.value = route.query.year as string
   const query = new URLSearchParams(location.search)
   const res = await fetch(`/item?${query.toString()}`)
   response.value = await res.json()
