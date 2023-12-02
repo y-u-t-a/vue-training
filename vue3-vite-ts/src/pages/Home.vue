@@ -9,7 +9,7 @@ const menu = routes.filter(r => r.path !== "/")
   <VList>
     <VListItem v-for="route in menu">
       ・
-      <RouterLink :to="route.path">{{ route.meta?.title }}</RouterLink>
+      <RouterLink :to="route.path">{{ route.meta.title }}</RouterLink>
     </VListItem>
   </VList>
 </template>

@@ -5,7 +5,15 @@ import CallApi from './pages/call-api/CallApi.vue'
 import Filter from './pages/filter/Filter.vue'
 import Query from './pages/query/Query.vue'
 
-export const routes: RouteRecordRaw[] = [
+type RouteMeta = {
+  title: string,
+}
+
+type ExtendedRouteRecordRaw = RouteRecordRaw & {
+  meta: RouteMeta,
+}
+
+export const routes: ExtendedRouteRecordRaw[] = [
   {
     path: '/',
     component: Home,
