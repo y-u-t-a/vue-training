@@ -2,7 +2,8 @@
   "name": "vue-training",
   "workspaces": [
     "vue2-vite-ts",
-    "vue3-vite-ts"
+    "vue3-vite-ts",
+    "vue3-vite-tsx"
   ],
   "devDependencies": {
     "typescript": "^5.0.2",
