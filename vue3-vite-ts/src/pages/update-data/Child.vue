@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ItemWithState } from './UpdateData.vue'
+import { ItemWithState } from './item'
 import GrandChild from './GrandChild.vue'
 
 const modelValue = defineModel<ItemWithState>('item', {

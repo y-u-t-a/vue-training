@@ -5,3 +5,8 @@ export class Item {
     public category: string[] = [],
   ) {}
 }
+
+export type ItemWithState = {
+  item: Item,
+  check: boolean
+}

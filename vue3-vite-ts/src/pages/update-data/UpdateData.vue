@@ -2,12 +2,7 @@
 import { ref, computed } from 'vue'
 
 import Child from './Child.vue'
-import { Item } from './item'
-
-export type ItemWithState = {
-  item: Item,
-  check: boolean
-}
+import { Item, ItemWithState } from './item'
 
 const items = ref<ItemWithState[]>([
   { item: new Item(1, "item1"), check: false },
