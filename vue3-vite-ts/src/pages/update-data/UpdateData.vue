@@ -4,7 +4,7 @@ import { ref, computed } from 'vue'
 import Child from './Child.vue'
 import { Item } from './item'
 
-type ItemWithState = {
+export type ItemWithState = {
   item: Item,
   check: boolean
 }
@@ -71,10 +71,9 @@ function changeCategory(item: Item, category: string[]) {
     </VCol>
     <VCol class="mt-10">
       <h2>子コンポーネント</h2>
-      <div v-for="item in items">
+      <div v-for="(_, index) in items">
         <Child
-          :item="item.item"
-          :check="item.check"
+          v-model:item="items[index]"
           @changeCheckState="changeCheckState"
           @changeCategory="changeCategory"
         ></Child>
