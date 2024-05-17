@@ -36,21 +36,6 @@ function addItem() {
     { item: new Item(id, `item${id}`), check: false }
   )
 }
-function changeCheckState(item: Item, check: boolean) {
-  items.value.forEach(i => {
-    if (i.item.id === item.id) {
-      i.check = check
-    }
-  })
-}
-
-function changeCategory(item: Item, category: string[]) {
-  items.value.forEach(i => {
-    if (i.item.id === item.id) {
-      i.item.category = category
-    }
-  })
-}
 </script>
 
 <template>
@@ -69,8 +54,6 @@ function changeCategory(item: Item, category: string[]) {
       <div v-for="(_, index) in items">
         <Child
           v-model:item="items[index]"
-          @changeCheckState="changeCheckState"
-          @changeCategory="changeCategory"
         ></Child>
       </div>
     </VCol>
