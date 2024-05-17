@@ -6,7 +6,7 @@ const props = defineProps<{
   item: Item,
 }>()
 const emits = defineEmits<{
-  changeCategory: [item: Item, category: string[]]
+  changeCategory: [category: string[]]
 }>()
 
 const category = computed({
@@ -16,7 +16,7 @@ const category = computed({
       .split(/,|\s/)
       .map(s => s.trim())
       .filter(s => s.length > 0)
-    emits("changeCategory", props.item, newCategory)
+    emits("changeCategory", newCategory)
   }
 })
 </script>

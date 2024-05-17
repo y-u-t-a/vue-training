@@ -6,6 +6,10 @@ const modelValue = defineModel<ItemWithState>('item', {
   required: true
 })
 
+function changeCategory(category: string[]) {
+  modelValue.value.item.category = category
+}
+
 </script>
 
 <template>
@@ -18,7 +22,10 @@ const modelValue = defineModel<ItemWithState>('item', {
     </VCol>
     <VCol>
       <h3>孫コンポーネント</h3>
-      <GrandChild :item="modelValue.item" v-bind="$attrs"/>
+      <GrandChild
+        :item="modelValue.item"
+        @change-category="changeCategory"
+      />
     </VCol>
   </VRow>
 </template>
