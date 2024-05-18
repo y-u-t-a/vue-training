@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { Item } from './item'
 
 const props = defineProps<{
-  item: Item,
+  category: string[],
 }>()
 const emits = defineEmits<{
   changeCategory: [category: string[]]
 }>()
 
 const category = computed({
-  get: () => props.item.category.join(", "),
+  get: () => props.category.join(", "),
   set: (value) => {
     const newCategory = value
       .split(/,|\s/)

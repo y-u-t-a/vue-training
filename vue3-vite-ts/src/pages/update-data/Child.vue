@@ -23,7 +23,7 @@ function changeCategory(category: string[]) {
     <VCol>
       <h3>孫コンポーネント</h3>
       <GrandChild
-        :item="modelValue.item"
+        :category="modelValue.item.category"
         @change-category="changeCategory"
       />
     </VCol>
