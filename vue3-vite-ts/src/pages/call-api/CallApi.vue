@@ -29,6 +29,7 @@ onBeforeMount(async () => {
   <p v-else>API呼び出し結果: {{ users }}</p>
   <h2> useFetch版</h2>
   <VBtn @click="execute()">API呼び出し</VBtn>
-  <VBtn @click="data = undefined">リセット</VBtn>
+  <VBtn @click="data = null">リセット</VBtn>
   <p>API呼び出し結果: {{ isFetching ? "ロード中..." : data }}</p>
+  <p>一つ目の要素: {{ data?.users?.[0] }}</p>
 </template>
