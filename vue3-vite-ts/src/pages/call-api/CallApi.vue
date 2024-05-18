@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref, onBeforeMount } from 'vue'
-import { Users, getUsers } from './users'
+import { Users, getUsers, useFetchUsers } from './users'
 
 const users = ref<Users | null>(null)
+
+const { isFetching, data, execute } = useFetchUsers()
 
 function loading() {
   return users.value === null
@@ -25,4 +27,8 @@ onBeforeMount(async () => {
   <p v-if="loading()">ロード中...</p>
   <p v-else-if="empty()">0件</p>
   <p v-else>API呼び出し結果: {{ users }}</p>
+  <h2> useFetch版</h2>
+  <VBtn @click="execute()">API呼び出し</VBtn>
+  <VBtn @click="data = undefined">リセット</VBtn>
+  <p>API呼び出し結果: {{ isFetching ? "ロード中..." : data }}</p>
 </template>

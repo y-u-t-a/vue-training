@@ -1,3 +1,5 @@
+import { set, useFetch } from "@vueuse/core"
+
 export type Users = {
   users: string[]
 }
@@ -9,3 +11,10 @@ export async function getUsers(): Promise<Users> {
     users: resJson.users
   }
 }
+
+export const useFetchUsers = () => useFetch("/users", {
+  immediate: false,
+  beforeFetch: async () => {
+    await new Promise(e => setTimeout(e, 2000))
+  }
+}).get()
