@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ItemWithState } from './item'
 import GrandChild from './GrandChild.vue'
+import GrandChild2 from './GrandChild2.vue'
 
 const modelValue = defineModel<ItemWithState>('item', {
   required: true
@@ -25,6 +26,9 @@ function changeCategory(category: string[]) {
       <GrandChild
         :category="modelValue.item.category"
         @change-category="changeCategory"
+      />
+      <GrandChild2
+        v-model="modelValue.item.recommendItems"
       />
     </VCol>
   </VRow>

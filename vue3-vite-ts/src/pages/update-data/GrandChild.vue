@@ -21,6 +21,7 @@ const category = computed({
 </script>
 
 <template>
+  <span>カテゴリ</span>
   <v-text-field
     v-model="category"
   />
