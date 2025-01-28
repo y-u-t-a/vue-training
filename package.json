@@ -1,8 +1,8 @@
 {
   "name": "vue-training",
   "workspaces": [
-    "vue3-vite-ts",
-    "vue3-vite-tsx"
+    "tsx",
+    "vuetify"
   ],
   "devDependencies": {
     "typescript": "^5.7.3",
