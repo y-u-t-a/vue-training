@@ -33,7 +33,7 @@ watch(filter, (newValue) => {
     </thead>
     <tbody>
       <tr v-if="desserts.length === 0">
-        <p>データがありません。</p>
+        <td>データがありません。</td>
       </tr>
       <tr
         v-for="item in desserts"

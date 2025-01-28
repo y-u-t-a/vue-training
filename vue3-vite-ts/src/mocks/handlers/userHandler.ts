@@ -1,10 +1,7 @@
-import { rest } from 'msw' // mswのrestをインポートします。
+import { http, HttpResponse } from 'msw'
 
-export const userHandler = rest.get('/users', (_, res, ctx) => {
-  return res(
-    ctx.status(200),
-    ctx.json({
-      users: ["a", "b", "c"]
-    })
-  )
+export const userHandler = http.get('/users', () => {
+  return HttpResponse.json({
+    users: ["a", "b", "c"]
+  })
 })
